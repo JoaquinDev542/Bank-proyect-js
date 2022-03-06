@@ -1,3 +1,8 @@
+// Algoritmo
+    // Nuestra necesidad principal es validar un usuario y contraseña y poder depositar o retirar dinero.
+    // Los datos de entrada serán el nombre de usuario, la contraseña y el dinero a depositar o retirar.
+    // Los datos de salida serán si el valor del usuario/contraseña son correctos y el dinero que queda en nuestro banco.
+
 // PseudoCodigo
 
     // (Almacenar Datos)
