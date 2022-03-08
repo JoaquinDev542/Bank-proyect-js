@@ -5,6 +5,8 @@
 
 
 // Código
+// Código
+
 let userName = "";
 let password = "";
 let availableMoney = undefined;
@@ -24,8 +26,6 @@ const functionConfirmCreateAccount = function () {
     }
 }
 
-
-
 const functionCreateAccount = function () {
     userName = prompt("Por favor, coloque su nombre de usuario");
     password = prompt("Por favor, coloque una contraseña");
@@ -44,16 +44,64 @@ const functionLogin = function () {
 } 
 
 const functionValidateAccount = function() {
-    let validateUser = prompt("Coloque su nombre de usuario");
-    let validatePassword = prompt("Coloque su contraseña");
+
+    let validateUser = "";
+    let validatePassword = "";
+
+    validateUser = prompt("Coloque su nombre de usuario");
+    validatePassword = prompt("Coloque su contraseña");
 
     if(validateUser === userName && validatePassword === password) {
         console.log(`Hola ${userName}, usted ha iniciado sesión correctamente`);
+        functionWhatWannaMake();
     } else {
-        console.warn("Su usuario y/o contraseña es incorrectos, por favor, intentelo de nuevo"); 
+            console.warn("Su usuario y/o contraseña es incorrecta, por favor, intentelo de nuevo"); 
+    }
+    // Completar while
+}
 
+const functionWhatWannaMake = function() {
+    alert("¿Que desea hacer?");
+    let wantDepositMoney = confirm("¿Desea depositar dinero?");
+
+    if(wantDepositMoney === true) {
+        functionDepositMoney();
+    } else {
+        let wantWithdrawMoney = confirm("¿Desea retirar dinero?");
+
+        if(wantWithdrawMoney === true) {
+            functionWithdrawMoney();
+        } else {
+            console.log("Usted ha decidido no ejecutar ninguna acción");
+        }
     }
 
+}
+
+// Funcion bucle ingresar-retirar dinero
+
+
+const functionDepositMoney = function() {
+    depositMoney = prompt("Indique la cantidad de dinero que quiere depositar");
+    depositMoney = Number(depositMoney);
+
+    availableMoney = 0;
+    availableMoney = availableMoney + depositMoney;
+
+    console.log(`Usted ha ingresado ${depositMoney}`);
+    console.log(`Su dinero total es ${availableMoney}`);
+};
+
+const functionWithdrawMoney = function() {
+    withdrawMoney = prompt("Indique la cantidad de dinero a retirar");
+    depositMoney = Number(depositMoney);
+
+    if(withdrawMoney > availableMoney) {
+        console.warn(`La cantidad a retirar (${withdrawMoney}) es mayor al disponible total (${availableMoney})`);
+    } else {
+        console.log(`La cantidad a retirar (${withdrawMoney}) ha sido retirada`);
+        console.log(`Su saldo actual es de (${availableMoney - withdrawMoney})`);
+    }
 }
 
 
