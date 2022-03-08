@@ -1,0 +1,117 @@
+<!-- PseudoCodigo -->
+
+<!-- AlmacenarDatos -->    
+        Crear Variable userName = "";
+        Crear Variable password = "";
+        Crear Variable availableMoney = undefined;
+        Crear Variable depositMoney = "";
+        Crear Variable withdrawMoney = undefined;
+
+
+
+<!-- (Función Confirmar Creación Cuenta) -->
+        Crear función functionConfirmCreateAccount {
+            Crear Constante confirmCreateAccount y Confirmar "¿Quieres crear una cuenta?";
+
+            Si (confirmCreateAccount === true) {
+                Imprimir "Usted ya puede crearse una cuenta";
+                functionCreateAccount();
+                functionLogin();
+        
+            } deLoContrario {
+                Imprimir "Usted ha decidido no crearse una cuenta";
+            }
+    }
+
+
+
+<!-- (Función Crear Cuenta) -->
+        Crear Constante functionCreateAccount {
+                Almacenar en userName y Escribir "Por favor, coloque un nombre de usuario";
+                Almacenar en password y Escribir "Por favor, coloque una contraseña";
+                Imprimir "Usted se ha registrado correctamente";
+        }
+
+
+
+<!-- (Función Iniciar Sesión) -->
+        Crear Constante functionLogin {
+            Crear Variable loginMessage y Confirmar "Si desea iniciar sesión, confirmelo con la opción Ok"
+
+            Si (loginMessage === true) {
+                Imprimir "Usted puede iniciar sesión";
+                functionValidateAccount();
+            } deLocontrario {
+                Imprimir "Usted ha decidido no iniciar sesión";
+
+                For (Crear Variable i = 1; si i <= 5; i++) {
+                        Si () {
+
+                        }
+                }
+            }
+
+        }
+
+
+
+<!-- (Función Validar Cuenta) -->
+        Crear Constante functionValidateAccount {
+            Crear Variable validateUser y Escribir "Coloque su nombre de usuario";
+            Crear Variable validatePassword y Escribir "Coloque su contraseña";
+
+           
+            COMPLETAR (Crear condicion que si la contraseña y el nombre son iguales mandar un console.log diciendo que usted ha iniciado sesion, de lo contrario un bucle donde puedas escribir de nuevo teniendo solamente 5 intentos.
+
+
+    }
+
+<!-- (Función Que Desea Hacer) -->
+        Imprimir "¿Que desea hacer?";
+        Crear variable wantDepositMoney = Imprimir "¿Desea depositar dinero?"
+        
+        Si (wantDepositMoney === true) {
+            Llame a la función IngresarDinero 
+        } deLoContrario {
+            Crear variable wantWithdrawMoney = Imprimir "¿Desea retirar dinero?"
+
+            Si (wantWithdrawMoney === true) {
+                Llame a la función RetirarDinero 
+            } deLoContrario {
+                Imprimir "Usted ha decidido, no ejecutar ninguna acción" ;
+            }
+
+        }
+
+<!-- (Funcion Bucle Ingresar-Retirar Dinero) HACER -->
+         
+
+<!-- (Función Ingresar Dinero)  -->
+        Si (wantDepositMoney === true) {
+            Reasignar Variable depositMoney y Escribir = "Indique la cantidad de dinero que quiere depositar.";
+            Cambiar depositMoney to Number
+
+            Reasignar Variable availableMoney = 0;
+            availableMoney = availableMoney + depositMoney;
+
+            Imprimir `Usted ha ingresado ${depositMoney}`;
+            Imprimir `Su dinero total es de ${availableMoney}`;
+
+        }
+ <!-- FALTA DESEA INGRESAR UNA VEZ MAS? BUCLE*** -->
+
+<!-- (Función Retirar Dinero) -->
+        Si (wantWithdrawMoney === true) {
+            Reasignar Variable withdrawMoney y Escribir = "Indique la cantidad de dinero que desea retirar" ;
+            Cambiar withdrawMoney to Number
+
+            Si (withdrawMoney > availableMoney) {
+                Imprimir `La cantidad a retirar (${withdrawMoney}) es mayor al disponible total (${availableMoney})`;
+            } deLoContrario {
+                Imprimir `La cantidad a retirar (${withdrawMoney}) ha sido retirada.`;
+                Imprimir `Su saldo actual es de ${availableMoney - withdrawMoney}`;
+            }
+
+        }
+
+<!-- HACERLO EN BUCLE HASTA QUE LA CANTIDAD SEA MENOR AL TOTAL -->
