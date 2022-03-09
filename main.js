@@ -5,7 +5,6 @@
 
 
 // Código
-// Código
 
 let userName = "";
 let password = "";
@@ -41,27 +40,32 @@ const functionLogin = function () {
     } else {
         console.log("Usted ha decidido no iniciar sesión");
     }
+
 } 
 
 const functionValidateAccount = function() {
 
     let validateUser = "";
     let validatePassword = "";
-
-    validateUser = prompt("Coloque su nombre de usuario");
-    validatePassword = prompt("Coloque su contraseña");
-
-    if(validateUser === userName && validatePassword === password) {
-        console.log(`Hola ${userName}, usted ha iniciado sesión correctamente`);
-        functionWhatWannaMake();
-    } else {
-            console.warn("Su usuario y/o contraseña es incorrecta, por favor, intentelo de nuevo"); 
-    }
-    // Completar while
+        
+        while(validateUser != userName && validatePassword != password) {
+            
+            validateUser = prompt("Coloque su nombre de usuario");
+            validatePassword = prompt("Coloque su contraseña");
+            
+            if(validateUser === userName && validatePassword === password) {
+                console.log(`Hola ${userName}, usted ha iniciado sesión correctamente`);
+                functionWhatWannaMake();
+            } else {
+                console.warn("Su usuario y/o contraseña es incorrecta, por favor, intentelo de nuevo"); 
+            }
+        }
 }
+    // Completar while
+
 
 const functionWhatWannaMake = function() {
-    alert("¿Que desea hacer?");
+    let whatWannaMakeAlert = alert("¿Que desea hacer?");
     let wantDepositMoney = confirm("¿Desea depositar dinero?");
 
     if(wantDepositMoney === true) {
@@ -75,26 +79,39 @@ const functionWhatWannaMake = function() {
             console.log("Usted ha decidido no ejecutar ninguna acción");
         }
     }
-
 }
 
-// Funcion bucle ingresar-retirar dinero
+    // whatWannaMakeAlert = alert("¿Quiere repetir algún proceso?");
 
+    // while(whatWannaMakeAlert != true) {
+        // functionWhatWannaMake();
+
+        // if(whatWannaMakeAlert === true) {
+            // console.log("Usted no quiere repetir ningún proceso");
+        // }
+    // } 
+
+    // Repetir bucle
+
+
+// Funcion bucle ingresar-retirar dinero
+// const functionDepositAndWithdraw = function () 
+    
 
 const functionDepositMoney = function() {
     depositMoney = prompt("Indique la cantidad de dinero que quiere depositar");
-    depositMoney = Number(depositMoney);
-
+    let depositMoneyNumber =  Number(depositMoney);
+    
     availableMoney = 0;
-    availableMoney = availableMoney + depositMoney;
+    availableMoney = availableMoney + depositMoneyNumber;
 
-    console.log(`Usted ha ingresado ${depositMoney}`);
+    console.log(`Usted ha ingresado ${depositMoneyNumber}`);
     console.log(`Su dinero total es ${availableMoney}`);
 };
 
 const functionWithdrawMoney = function() {
     withdrawMoney = prompt("Indique la cantidad de dinero a retirar");
-    depositMoney = Number(depositMoney);
+    withdrawMoney = Number(withdrawMoney);
 
     if(withdrawMoney > availableMoney) {
         console.warn(`La cantidad a retirar (${withdrawMoney}) es mayor al disponible total (${availableMoney})`);
@@ -103,6 +120,6 @@ const functionWithdrawMoney = function() {
         console.log(`Su saldo actual es de (${availableMoney - withdrawMoney})`);
     }
 }
-
+// Arreglar functionDepositMoney / functionWithdrawMoney tipo Number
 
 functionConfirmCreateAccount();
