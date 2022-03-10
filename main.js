@@ -6,11 +6,16 @@
 
 // Código
 
+// Código
+
 let userName = "";
 let password = "";
+let validateUser = "";
+let validatePassword = "";
 let availableMoney = undefined;
 let depositMoney = "";
 let withdrawMoney = undefined;
+
 
 const functionConfirmCreateAccount = function () {
     let confirmCreateAccount = confirm("¿Quieres crear una cuenta?");
@@ -18,16 +23,27 @@ const functionConfirmCreateAccount = function () {
     if(confirmCreateAccount === true) {
         console.log("Usted ya puede crearse una cuenta");
         functionCreateAccount();
-        functionLogin();
 
     } else {
         console.log("Usted ha decidido no crearse una cuenta");
     }
 }
-
 const functionCreateAccount = function () {
+    alert("Su nombre de usuario tiene un límite de 15 caracteres y no puede haber caracteres especiales.");
     userName = prompt("Por favor, coloque su nombre de usuario");
+    alert("Su contraseña tiene que tener mínimo 1 letra minúscula, 1 letra mayúscula, 1 número, 1 caracter especial y al menos 8 caracteres mínimo.");
     password = prompt("Por favor, coloque una contraseña");
+
+    const RegExUserName = /^[a-zA-Záéíóú]{1,15}$/gi;
+    const RegExPassword = /(?=(.*[0-9]))((?=.*[A-Za-z0-9])(?=.*[A-Z])(?=.*[a-z]))^.{8,}$/gi;
+
+    if(RegExUserName.test(userName) === true && RegExPassword.test(password) === true) {
+        console.log("Su nombre de usuario es válido");
+        functionLogin();
+    } else {
+        console.log("Su contraseña es inválida");
+    }
+
     console.log("Usted se ha registrado correctamente");
 }
 
@@ -45,9 +61,6 @@ const functionLogin = function () {
 
 const functionValidateAccount = function() {
 
-    let validateUser = "";
-    let validatePassword = "";
-        
         while(validateUser != userName && validatePassword != password) {
             
             validateUser = prompt("Coloque su nombre de usuario");
@@ -81,6 +94,8 @@ const functionWhatWannaMake = function() {
     }
 }
 
+
+
     // whatWannaMakeAlert = alert("¿Quiere repetir algún proceso?");
 
     // while(whatWannaMakeAlert != true) {
@@ -97,6 +112,8 @@ const functionWhatWannaMake = function() {
 // Funcion bucle ingresar-retirar dinero
 // const functionDepositAndWithdraw = function () 
     
+// 
+
 
 const functionDepositMoney = function() {
     depositMoney = prompt("Indique la cantidad de dinero que quiere depositar");
